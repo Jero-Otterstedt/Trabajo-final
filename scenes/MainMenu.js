@@ -4,7 +4,7 @@ export default class MainMenu extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("sky", "./public/assets/fondo_menu.png");
+    this.load.image("sky", "./public/assets/Fondo_menu.png");
     this.load.image("btnPlay", "./public/assets/logo-play.png");
     this.load.image("btnPlay_hover", "./public/assets/logo-play-seleccionado.png");
   }
