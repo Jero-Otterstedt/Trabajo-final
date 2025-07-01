@@ -33,6 +33,15 @@ export default class GameOverScene extends Phaser.Scene {
     }).setOrigin(0.5);
 
     this.rKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
+
+    this.input.keyboard.on("keydown-R", () => {
+      const musica = this.sound.get("musicaFondo");
+      if (musica) {
+        musica.stop();
+        musica.play();
+      }
+      this.scene.start("MainMenu"); 
+    });
   }
 
   update() {

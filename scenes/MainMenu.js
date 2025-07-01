@@ -7,6 +7,7 @@ export default class MainMenu extends Phaser.Scene {
     this.load.image("sky", "./public/assets/Fondo_menu.png");
     this.load.image("btnPlay", "./public/assets/logo-play.png");
     this.load.image("btnPlay_hover", "./public/assets/logo-play-seleccionado.png");
+    this.load.audio("musicaFondo", "./public/assets/musica.mp3"); 
   }
 
   create() {
@@ -33,5 +34,14 @@ export default class MainMenu extends Phaser.Scene {
     this.input.keyboard.on("keydown-ENTER", () => {
       this.scene.start("HowToPlay");
     });
+
+    if (!this.sound.get("musicaFondo")) {
+      this.musica = this.sound.add("musicaFondo", { loop: true, volume: 0.5 });
+      this.musica.play();
+    } else {
+      this.musica = this.sound.get("musicaFondo");
+      if (!this.musica.isPlaying) this.musica.play();
+    }
+    this.musica.setLoop(true);
   }
 }
